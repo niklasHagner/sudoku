@@ -130,7 +130,7 @@ function setupClickEvents() {
     gameState.paused = !gameState.paused;
     if (gameState.paused) {
       clearInterval(gameState.timer.interval);
-      togglePauseButton.innerText = "▷ Fortsätt";
+      togglePauseButton.innerText = "▷ Resume";
     } else {
       startTimer();
       togglePauseButton.innerText = "❚❚ Pausa";

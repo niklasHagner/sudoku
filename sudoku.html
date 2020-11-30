@@ -4,1542 +4,1559 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./sudoku.responsive.css">
     <title>Sudoku</title>
     <style>
-    .hidden {
-      display: none;
-    }
+      .hidden {
+        display: none;
+      }
+      footer {
+        background: #222;
+        color: #ffffff42;
+        width: 100%;
+        margin-bottom: -33px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
     </style>
   </head>
 
   <body>
-    <div class="sudoku-page">
-
-      <h1>Sudoku</h1>
-      <article class="sudoku">
-
-
-        <div class="cell immutable" data-solution="3" data-cell-index="0" data-row-index="0" data-column-index="0"
-          data-square-index="0">
-
-          <span class="value">3</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="7" data-cell-index="1" data-row-index="0" data-column-index="1"
-          data-square-index="0">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable  border-right" data-solution="2" data-cell-index="2" data-row-index="0"
-          data-column-index="2" data-square-index="0">
-
-          <span class="value">2</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="5" data-cell-index="3" data-row-index="0" data-column-index="3"
-          data-square-index="1">
-
-          <span class="value">5</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="4" data-cell-index="4" data-row-index="0" data-column-index="4"
-          data-square-index="1">
-
-          <span class="value">4</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable  border-right" data-solution="8" data-cell-index="5" data-row-index="0"
-          data-column-index="5" data-square-index="1">
-
-          <span class="value">8</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="6" data-cell-index="6" data-row-index="0" data-column-index="6"
-          data-square-index="2">
-
-          <span class="value">6</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="1" data-cell-index="7" data-row-index="0" data-column-index="7"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="9" data-cell-index="8" data-row-index="0" data-column-index="8"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="5" data-cell-index="9" data-row-index="1" data-column-index="0"
-          data-square-index="0">
-
-          <span class="value">5</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="10" data-row-index="1" data-column-index="1"
-          data-square-index="0">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="9" data-cell-index="11" data-row-index="1" data-column-index="2"
-          data-square-index="0">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="6" data-cell-index="12" data-row-index="1" data-column-index="3"
-          data-square-index="1">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="1" data-cell-index="13" data-row-index="1" data-column-index="4"
-          data-square-index="1">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable  border-right" data-solution="7" data-cell-index="14" data-row-index="1"
-          data-column-index="5" data-square-index="1">
-
-          <span class="value">7</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="2" data-cell-index="15" data-row-index="1" data-column-index="6"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="4" data-cell-index="16" data-row-index="1" data-column-index="7"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="3" data-cell-index="17" data-row-index="1" data-column-index="8"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="1" data-cell-index="18" data-row-index="2" data-column-index="0"
-          data-square-index="0">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable border-bottom" data-solution="6" data-cell-index="19" data-row-index="2"
-          data-column-index="1" data-square-index="0">
-
-          <span class="value">6</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom border-right" data-solution="4" data-cell-index="20" data-row-index="2"
-          data-column-index="2" data-square-index="0">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="9" data-cell-index="21" data-row-index="2" data-column-index="3"
-          data-square-index="1">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="2" data-cell-index="22" data-row-index="2" data-column-index="4"
-          data-square-index="1">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom border-right" data-solution="3" data-cell-index="23" data-row-index="2"
-          data-column-index="5" data-square-index="1">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="5" data-cell-index="24" data-row-index="2" data-column-index="6"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="7" data-cell-index="25" data-row-index="2" data-column-index="7"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="8" data-cell-index="26" data-row-index="2" data-column-index="8"
-          data-square-index="2">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="9" data-cell-index="27" data-row-index="3" data-column-index="0"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="4" data-cell-index="28" data-row-index="3" data-column-index="1"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="5" data-cell-index="29" data-row-index="3" data-column-index="2"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="30" data-row-index="3" data-column-index="3"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="6" data-cell-index="31" data-row-index="3" data-column-index="4"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="1" data-cell-index="32" data-row-index="3" data-column-index="5"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="7" data-cell-index="33" data-row-index="3" data-column-index="6"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="3" data-cell-index="34" data-row-index="3" data-column-index="7"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="2" data-cell-index="35" data-row-index="3" data-column-index="8"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="6" data-cell-index="36" data-row-index="4" data-column-index="0"
-          data-square-index="3">
-
-          <span class="value">6</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="1" data-cell-index="37" data-row-index="4" data-column-index="1"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="7" data-cell-index="38" data-row-index="4" data-column-index="2"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="2" data-cell-index="39" data-row-index="4" data-column-index="3"
-          data-square-index="4">
-
-          <span class="value">2</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="3" data-cell-index="40" data-row-index="4" data-column-index="4"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="5" data-cell-index="41" data-row-index="4" data-column-index="5"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="42" data-row-index="4" data-column-index="6"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="9" data-cell-index="43" data-row-index="4" data-column-index="7"
-          data-square-index="5">
-
-          <span class="value">9</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="4" data-cell-index="44" data-row-index="4" data-column-index="8"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable border-bottom" data-solution="2" data-cell-index="45" data-row-index="5"
-          data-column-index="0" data-square-index="3">
-
-          <span class="value">2</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="3" data-cell-index="46" data-row-index="5" data-column-index="1"
-          data-square-index="3">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable border-bottom border-right" data-solution="8" data-cell-index="47" data-row-index="5"
-          data-column-index="2" data-square-index="3">
-
-          <span class="value">8</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="7" data-cell-index="48" data-row-index="5" data-column-index="3"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="9" data-cell-index="49" data-row-index="5" data-column-index="4"
-          data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom border-right" data-solution="4" data-cell-index="50" data-row-index="5"
-          data-column-index="5" data-square-index="4">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="1" data-cell-index="51" data-row-index="5" data-column-index="6"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell  border-bottom" data-solution="6" data-cell-index="52" data-row-index="5" data-column-index="7"
-          data-square-index="5">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable border-bottom" data-solution="5" data-cell-index="53" data-row-index="5"
-          data-column-index="8" data-square-index="5">
-
-          <span class="value">5</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="4" data-cell-index="54" data-row-index="6" data-column-index="0"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="5" data-cell-index="55" data-row-index="6" data-column-index="1"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="3" data-cell-index="56" data-row-index="6" data-column-index="2"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="1" data-cell-index="57" data-row-index="6" data-column-index="3"
-          data-square-index="7">
-
-          <span class="value">1</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="58" data-row-index="6" data-column-index="4"
-          data-square-index="7">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable  border-right" data-solution="6" data-cell-index="59" data-row-index="6"
-          data-column-index="5" data-square-index="7">
-
-          <span class="value">6</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="9" data-cell-index="60" data-row-index="6" data-column-index="6"
-          data-square-index="8">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="2" data-cell-index="61" data-row-index="6" data-column-index="7"
-          data-square-index="8">
-
-          <span class="value">2</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="7" data-cell-index="62" data-row-index="6" data-column-index="8"
-          data-square-index="8">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="63" data-row-index="7" data-column-index="0"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="2" data-cell-index="64" data-row-index="7" data-column-index="1"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="1" data-cell-index="65" data-row-index="7" data-column-index="2"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="4" data-cell-index="66" data-row-index="7" data-column-index="3"
-          data-square-index="7">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="7" data-cell-index="67" data-row-index="7" data-column-index="4"
-          data-square-index="7">
-
-          <span class="value">7</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="9" data-cell-index="68" data-row-index="7" data-column-index="5"
-          data-square-index="7">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="3" data-cell-index="69" data-row-index="7" data-column-index="6"
-          data-square-index="8">
-
-          <span class="value">3</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="5" data-cell-index="70" data-row-index="7" data-column-index="7"
-          data-square-index="8">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="6" data-cell-index="71" data-row-index="7" data-column-index="8"
-          data-square-index="8">
-
-          <span class="value">6</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="7" data-cell-index="72" data-row-index="8" data-column-index="0"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="9" data-cell-index="73" data-row-index="8" data-column-index="1"
-          data-square-index="6">
-
-          <span class="value">9</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="6" data-cell-index="74" data-row-index="8" data-column-index="2"
-          data-square-index="6">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="3" data-cell-index="75" data-row-index="8" data-column-index="3"
-          data-square-index="7">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="5" data-cell-index="76" data-row-index="8" data-column-index="4"
-          data-square-index="7">
-
-          <span class="value">5</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell   border-right" data-solution="2" data-cell-index="77" data-row-index="8" data-column-index="5"
-          data-square-index="7">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell immutable" data-solution="4" data-cell-index="78" data-row-index="8" data-column-index="6"
-          data-square-index="8">
-
-          <span class="value">4</span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="8" data-cell-index="79" data-row-index="8" data-column-index="7"
-          data-square-index="8">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-
-
-
-        <div class="cell" data-solution="1" data-cell-index="80" data-row-index="8" data-column-index="8"
-          data-square-index="8">
-
-          <span class="value"></span>
-
-          <span class="sudoku-note-cell sudoku-note-cell--1"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--2"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--3"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--4"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--5"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--6"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--7"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--8"></span>
-          <span class="sudoku-note-cell sudoku-note-cell--9"></span>
-        </div>
-      </article>
-
-      <div class="hidden sudoku__message">
-        <h1>🎉  Grattis! - Du besegrade sudokut!</h1>
-        <p>Det tog <span id="sudoku-win-time"></span></p>
-        <p>Vill du spela igen?</p>
-        <button class="button sudoko-restart">♻ Starta om</button>
+    <img src="https://i.redd.it/nggt8rbexhm11.png" alt="sudoku logo" style="height: 50px; margin-top: 5px;">
+
+    <article class="sudoku">
+      <div class="cell immutable" data-solution="3" data-cell-index="0" data-row-index="0" data-column-index="0"
+        data-square-index="0">
+
+        <span class="value">3</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
       </div>
 
-      <div class="sudoku-number-inputs hidden-desktop">
-        <button class="button sudoku-input-number-button">1</button>
-        <button class="button sudoku-input-number-button">2</button>
-        <button class="button sudoku-input-number-button">3</button>
-        <button class="button sudoku-input-number-button">4</button>
-        <button class="button sudoku-input-number-button">5</button>
-        <button class="button sudoku-input-number-button">6</button>
-        <button class="button sudoku-input-number-button">7</button>
-        <button class="button sudoku-input-number-button">8</button>
-        <button class="button sudoku-input-number-button">9</button>
-        <button class="button sudoku-clear-cell-button">X</button>
+
+
+      <div class="cell" data-solution="7" data-cell-index="1" data-row-index="0" data-column-index="1"
+        data-square-index="0">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
       </div>
 
-      <div class="sudoku-settings-inputs">
-        <button class="button sudoku-save">📙 Spara</button>
-        <button class="button sudoku-toggle-pause">❚❚ Pausa</button>
-        <button class="button sudoko-restart">♻ Starta om</button>
-        <button class="button sudoku-cheat-once">💡 Fuska 1 ruta</button>
-        <button class="button sudoku-cheat-a-lot">🔮 Fuska 40 rutor</button>
-        <button class="button sudoku-new">➡ Nytt sudoku</button>
-        <button class="button sudoku-toggle-time">🕒 Tid</button>
+
+
+      <div class="cell immutable  border-right" data-solution="2" data-cell-index="2" data-row-index="0"
+        data-column-index="2" data-square-index="0">
+
+        <span class="value">2</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
       </div>
 
-      <p>
-        <label class="sudoku-arrow-key-label">
-          <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Använd piltangenter för att navigera
-          mellan rutorna
-        </label>
-      </p>
-      <p class="time hidden">
-        <span class="minutes">0</span>
-        <span class="colon">:</span>
-        <span class="seconds">00</span>
-      </p>
-      <div class="adjust">
+
+
+      <div class="cell immutable" data-solution="5" data-cell-index="3" data-row-index="0" data-column-index="3"
+        data-square-index="1">
+
+        <span class="value">5</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="4" data-cell-index="4" data-row-index="0" data-column-index="4"
+        data-square-index="1">
+
+        <span class="value">4</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable  border-right" data-solution="8" data-cell-index="5" data-row-index="0"
+        data-column-index="5" data-square-index="1">
+
+        <span class="value">8</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="6" data-cell-index="6" data-row-index="0" data-column-index="6"
+        data-square-index="2">
+
+        <span class="value">6</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="1" data-cell-index="7" data-row-index="0" data-column-index="7"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="9" data-cell-index="8" data-row-index="0" data-column-index="8"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="5" data-cell-index="9" data-row-index="1" data-column-index="0"
+        data-square-index="0">
+
+        <span class="value">5</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="10" data-row-index="1" data-column-index="1"
+        data-square-index="0">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="9" data-cell-index="11" data-row-index="1" data-column-index="2"
+        data-square-index="0">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="6" data-cell-index="12" data-row-index="1" data-column-index="3"
+        data-square-index="1">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="1" data-cell-index="13" data-row-index="1" data-column-index="4"
+        data-square-index="1">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable  border-right" data-solution="7" data-cell-index="14" data-row-index="1"
+        data-column-index="5" data-square-index="1">
+
+        <span class="value">7</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="2" data-cell-index="15" data-row-index="1" data-column-index="6"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="4" data-cell-index="16" data-row-index="1" data-column-index="7"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="3" data-cell-index="17" data-row-index="1" data-column-index="8"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="1" data-cell-index="18" data-row-index="2" data-column-index="0"
+        data-square-index="0">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable border-bottom" data-solution="6" data-cell-index="19" data-row-index="2"
+        data-column-index="1" data-square-index="0">
+
+        <span class="value">6</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom border-right" data-solution="4" data-cell-index="20" data-row-index="2"
+        data-column-index="2" data-square-index="0">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="9" data-cell-index="21" data-row-index="2" data-column-index="3"
+        data-square-index="1">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="2" data-cell-index="22" data-row-index="2" data-column-index="4"
+        data-square-index="1">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom border-right" data-solution="3" data-cell-index="23" data-row-index="2"
+        data-column-index="5" data-square-index="1">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="5" data-cell-index="24" data-row-index="2" data-column-index="6"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="7" data-cell-index="25" data-row-index="2" data-column-index="7"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="8" data-cell-index="26" data-row-index="2" data-column-index="8"
+        data-square-index="2">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="9" data-cell-index="27" data-row-index="3" data-column-index="0"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="4" data-cell-index="28" data-row-index="3" data-column-index="1"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="5" data-cell-index="29" data-row-index="3" data-column-index="2"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="30" data-row-index="3" data-column-index="3"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="6" data-cell-index="31" data-row-index="3" data-column-index="4"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="1" data-cell-index="32" data-row-index="3" data-column-index="5"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="7" data-cell-index="33" data-row-index="3" data-column-index="6"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="3" data-cell-index="34" data-row-index="3" data-column-index="7"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="2" data-cell-index="35" data-row-index="3" data-column-index="8"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="6" data-cell-index="36" data-row-index="4" data-column-index="0"
+        data-square-index="3">
+
+        <span class="value">6</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="1" data-cell-index="37" data-row-index="4" data-column-index="1"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="7" data-cell-index="38" data-row-index="4" data-column-index="2"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="2" data-cell-index="39" data-row-index="4" data-column-index="3"
+        data-square-index="4">
+
+        <span class="value">2</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="3" data-cell-index="40" data-row-index="4" data-column-index="4"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="5" data-cell-index="41" data-row-index="4" data-column-index="5"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="42" data-row-index="4" data-column-index="6"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="9" data-cell-index="43" data-row-index="4" data-column-index="7"
+        data-square-index="5">
+
+        <span class="value">9</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="4" data-cell-index="44" data-row-index="4" data-column-index="8"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable border-bottom" data-solution="2" data-cell-index="45" data-row-index="5"
+        data-column-index="0" data-square-index="3">
+
+        <span class="value">2</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="3" data-cell-index="46" data-row-index="5" data-column-index="1"
+        data-square-index="3">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable border-bottom border-right" data-solution="8" data-cell-index="47" data-row-index="5"
+        data-column-index="2" data-square-index="3">
+
+        <span class="value">8</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="7" data-cell-index="48" data-row-index="5" data-column-index="3"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="9" data-cell-index="49" data-row-index="5" data-column-index="4"
+        data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom border-right" data-solution="4" data-cell-index="50" data-row-index="5"
+        data-column-index="5" data-square-index="4">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="1" data-cell-index="51" data-row-index="5" data-column-index="6"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell  border-bottom" data-solution="6" data-cell-index="52" data-row-index="5" data-column-index="7"
+        data-square-index="5">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable border-bottom" data-solution="5" data-cell-index="53" data-row-index="5"
+        data-column-index="8" data-square-index="5">
+
+        <span class="value">5</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="4" data-cell-index="54" data-row-index="6" data-column-index="0"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="5" data-cell-index="55" data-row-index="6" data-column-index="1"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="3" data-cell-index="56" data-row-index="6" data-column-index="2"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="1" data-cell-index="57" data-row-index="6" data-column-index="3"
+        data-square-index="7">
+
+        <span class="value">1</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="58" data-row-index="6" data-column-index="4"
+        data-square-index="7">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable  border-right" data-solution="6" data-cell-index="59" data-row-index="6"
+        data-column-index="5" data-square-index="7">
+
+        <span class="value">6</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="9" data-cell-index="60" data-row-index="6" data-column-index="6"
+        data-square-index="8">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="2" data-cell-index="61" data-row-index="6" data-column-index="7"
+        data-square-index="8">
+
+        <span class="value">2</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="7" data-cell-index="62" data-row-index="6" data-column-index="8"
+        data-square-index="8">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="63" data-row-index="7" data-column-index="0"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="2" data-cell-index="64" data-row-index="7" data-column-index="1"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="1" data-cell-index="65" data-row-index="7" data-column-index="2"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="4" data-cell-index="66" data-row-index="7" data-column-index="3"
+        data-square-index="7">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="7" data-cell-index="67" data-row-index="7" data-column-index="4"
+        data-square-index="7">
+
+        <span class="value">7</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="9" data-cell-index="68" data-row-index="7" data-column-index="5"
+        data-square-index="7">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="3" data-cell-index="69" data-row-index="7" data-column-index="6"
+        data-square-index="8">
+
+        <span class="value">3</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="5" data-cell-index="70" data-row-index="7" data-column-index="7"
+        data-square-index="8">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="6" data-cell-index="71" data-row-index="7" data-column-index="8"
+        data-square-index="8">
+
+        <span class="value">6</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="7" data-cell-index="72" data-row-index="8" data-column-index="0"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="9" data-cell-index="73" data-row-index="8" data-column-index="1"
+        data-square-index="6">
+
+        <span class="value">9</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="6" data-cell-index="74" data-row-index="8" data-column-index="2"
+        data-square-index="6">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="3" data-cell-index="75" data-row-index="8" data-column-index="3"
+        data-square-index="7">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="5" data-cell-index="76" data-row-index="8" data-column-index="4"
+        data-square-index="7">
+
+        <span class="value">5</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell   border-right" data-solution="2" data-cell-index="77" data-row-index="8" data-column-index="5"
+        data-square-index="7">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell immutable" data-solution="4" data-cell-index="78" data-row-index="8" data-column-index="6"
+        data-square-index="8">
+
+        <span class="value">4</span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="8" data-cell-index="79" data-row-index="8" data-column-index="7"
+        data-square-index="8">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+
+
+
+      <div class="cell" data-solution="1" data-cell-index="80" data-row-index="8" data-column-index="8"
+        data-square-index="8">
+
+        <span class="value"></span>
+
+        <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+        <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+      </div>
+    </article>
+
+    <div class="hidden sudoku__message">
+      <h1>🎉You're a winner!</h1>
+      <p>Det tog <span id="sudoku-win-time"></span></p>
+      <p>Vill du spela igen?</p>
+      <button class="button sudoko-restart">♻ Starta om</button>
+    </div>
+
+    <p>Use arrow keys to add numbers. Hold SHIFT to add number as a small note in the corner of a cell</p>
+    <br>
+
+    <div class="sudoku-number-inputs hidden-desktop">
+      <button class="button sudoku-input-number-button">1</button>
+      <button class="button sudoku-input-number-button">2</button>
+      <button class="button sudoku-input-number-button">3</button>
+      <button class="button sudoku-input-number-button">4</button>
+      <button class="button sudoku-input-number-button">5</button>
+      <button class="button sudoku-input-number-button">6</button>
+      <button class="button sudoku-input-number-button">7</button>
+      <button class="button sudoku-input-number-button">8</button>
+      <button class="button sudoku-input-number-button">9</button>
+      <button class="button sudoku-clear-cell-button">clear</button>
+    </div>
+
+    <div class="sudoku-settings-inputs">
+      <button class="button sudoku-cheat-once">💡 Cheat 1 cell</button>
+      <button class="button sudoku-cheat-a-lot">🔮 Cheat 40 cells</button>
+      <!-- <button class="button sudoku-new">❄️ New game</button> -->
+      <button class="button sudoko-restart">♻ Restart</button>
+      <button class="button sudoku-toggle-time">🕒 Show timer</button>
+      <button class="button sudoku-toggle-pause">❚❚ Pause</button>
+      <!-- <button class="button sudoku-save">📙 Save</button> -->
+    </div>
+
+    <p class="time hidden">
+      <span class="minutes">0</span>
+      <span class="colon">:</span>
+      <span class="seconds">00</span>
+    </p>
+   
+
+    <section class="sudoku-explanation">
+      <h3>Play this sudoku with your keyboard:</h3>
+      <p>Use arrow-keys to navigate, press numbers to add them, hold SHIFT while entering the number to add it as a 'note' in the margin. Do it again to remove the note. Press BACKSPACE to clear the big number in a cell.</p>
+      <br>
+      <h3>How to play sudoku - Beginner tips</h3>
+      <ul>
+        <li>The grey boxes are pre-filled numbers to help you get started</li>
+        <li>Add one number (1-9) per row, per column and per group (area with fat borders)</li>
+        <li>Start by looking at the areas with most pre-filled numbers. Find the missing number. Use SHIFT key to add 'notes' about each cell where that number could go.</li> 
+      </ul>
+      <br>
+    </section>
+
+    <section class="new-game hidden">
+      <div class="adjust-difficulty">
         <span>Lätt</span>
         <input class="difficulty" max="7" min="1" type="range" value="4">
         <span>Svårt</span>
       </div>
+    </section>
+    
+    <p>
+      <label class="sudoku-arrow-key-label">
+        <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
+      </label>
+    </p>
 
-      <section class="sudoku-explanation">
-        <h3>How the navigation works in this sudoku:</h3>
-        <ul>
-          <li>To add a 'note': press a number while holding shift</li>
-          <li>If you have a keyboard, use arrow-keys to step between the squares</li>
-          <li>Add numbers by using your keyboard or the visual buttons</li>
-          <li>To clear: press backspace or the X-button./li>
-        </ul>
+    <footer>
+      Created by Hagge
+    </footer>
 
-        <h3>How to play sudoku in general</h3>
-        <ul>
-          <li>Each number must only occurr once per row, once per column and once per group (the nine areas marked with thick lines)</li>
-          <li><b>Beginner tip:</b> start by looking at rows/cols/areas with most pre-populated numbers.</li>
-        </ul>
-      </section>
-    </div>
     <script async src="./sudoku.js"></script>
   </body>
 </html>
