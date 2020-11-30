@@ -1,0 +1,121 @@
+<div class="sudoku-page">
+
+    <h1>Sudoku</h1>
+    {% set cells = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ] %}
+    <article class="sudoku">
+        {% for row in cells %}
+            {% set rowIndex = loop.index0 %}
+            {% for cell in cells %}
+                {% set cellIndex = loop.index0 %}
+                {% set globalCellIndex = (rowIndex * 9) + cellIndex %}
+                {% set columnIndex = globalCellIndex - (rowIndex * 9) %}
+                {% set solutionValue = content.solution[globalCellIndex] %}
+                {% set puzzleValue = content.puzzle[globalCellIndex] %}
+                {% set displayValue = "" if puzzleValue is null else 
+                    puzzleValue + 1 %}
+                {% set immutableClass = "immutable" if puzzleValue is not null else 
+                    "" %}
+                {% set borderBottomClass = "border-bottom" if (rowIndex == 2 or rowIndex == 5) else "" %}
+                {% set borderRightClass = "border-right" if (cellIndex === 2 or cellIndex === 5) else "" %}
+
+                {# A square in sudoku is the 3x area with a fat border #}
+                {% set squareIndex = sudokuHelper.findSquareIndex(globalCellIndex, rowIndex) %}
+
+                <div class="cell {{immutableClass}} {{borderBottomClass}} {{borderRightClass}}"
+              data-solution="{{ solutionValue+1 }}"
+              data-cell-index="{{globalCellIndex}}"
+              data-row-index="{{rowIndex}}"
+              data-column-index="{{columnIndex}}"
+              data-square-index="{{squareIndex}}">
+
+                    <span class="value">{{displayValue}}</span>
+
+                    {% for memoryCell in[
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9
+                    ] %}
+                        <span class="sudoku-note-cell sudoku-note-cell--{{memoryCell}}"></span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </article>
+
+    <p class="hidden sudoku__message"></p>
+
+    <p class="sudoku-number-inputs hidden-desktop">
+        {% for number in[
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ] %}
+            <button class="button sudoku-input-number-button">{{ number }}</button>
+        {% endfor %}
+        <button class="button sudoku-clear-cell-button">X</button>
+    </p>
+
+    <p>
+        <button class="button sudoku-save">📙 Spara</button>
+        <button class="button sudoku-toggle-pause">❚❚ Pausa</button>
+        <button class="button sudoko-restart">♻ Starta om</button>
+        <button class="button sudoku-cheat-once">💡 Fuska 1 ruta</button>
+        <button class="button sudoku-cheat-a-lot">🔮 Fuska 40 rutor</button>
+        <button class="button sudoku-new">➡ Nytt sudoku</button>
+        <button class="button sudoku-toggle-time">🕒 Tid</button>
+    </p>
+
+    <p>
+        <label class="sudoku-arrow-key-label">
+            <input type="checkbox" class="sudoku-arrow-key-checkbox" checked> Använd piltangenter för att navigera mellan rutorna
+          </label>
+    </p>
+    <p class="time hidden">
+        <span class="minutes">0</span>
+        <span class="colon">:</span>
+        <span class="seconds">00</span>
+    </p>
+    <div class="adjust">
+        <span>Lätt</span>
+        <input class="difficulty" max="7" min="1" type="range" value="4">
+        <span>Svårt</span>
+    </div>
+
+    <section class="sudoku-explanation">
+        <p>
+            <b>Såhär löser man Sudoku:</b>
+        </p>
+        <p>Placera ut siffrorna 1-9. <br>
+        En siffra får endast förekomma en gång per rad, en gång per kolumn och en gång per 'grupp' (9x9 rutorn omgivna av tjockt streck) </p>
+        <p>Tips: Börja lösa de rader, kolumner eller sektioner som har flest förifyllda siffror</p>
+
+        <p>
+            <b>Såhär navigerar du:</b>
+        </p>
+        <p class="hidden-mobile">Du kan använda piltangenterna på tangentbordet för att navigera mellan rutorna<br>
+        Tryck på en siffertangenter för att skriva in en siffra.<br>
+        Håll inne shift och tryck på en siffertangent för att göra en minnes-anteckning</p>
+    </section>
+</div>
