@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+body {
+    text-align: center;
+    font-family: Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    background: #5f2c82; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #5f2c82, #49a09d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #5f2c82, #49a09d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+h1 {
+    font-family: Raleway, sans-serif;
+    line-height: 1;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+.outlined-text {
+    padding: 6px 0;
+    --fill-color: white;
+    position: relative;
+    display: block;
+    padding: 4px 0;
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px var(--fill-color);
+    background: linear-gradient(90deg, var(--fill-color) 0%, var(--fill-color) 100%);
+    background-size: 0;
+    background-position: left;
+    background-repeat: no-repeat;
+    color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    transition: 0.5s linear;
+    letter-spacing: 7px;
+  }
+  
+  .flexy:hover .filled-text {
+    background-size: 100%;
+  }
+  

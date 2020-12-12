@@ -14,6 +14,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./base.css">
     <link rel="stylesheet" href="./modal.css">
     <style>
       html,body {
@@ -28,8 +29,7 @@
   </head>
 
   <body>
-    <img src="https://i.redd.it/nggt8rbexhm11.png" alt="sudoku logo" style="height: 50px; margin-top: 5px;">
-
+    <h1 style="font-size: 40px;" class="outlined-text">Sudoku</h1>
     <article class="sudoku">
       <div class="cell immutable" data-solution="3" data-cell-index="0" data-row-index="0" data-column-index="0"
         data-square-index="0">
@@ -1495,8 +1495,6 @@
       <button class="button sudoko-restart">♻ Starta om</button>
     </div>
 
-    <p>Use arrow keys to add numbers. Hold SHIFT to add number as a small note in the corner of a cell</p>
-    <br>
 
     <div class="sudoku-number-inputs hidden-desktop">
       <button class="button sudoku-input-number-button">1</button>
@@ -1510,6 +1508,9 @@
       <button class="button sudoku-input-number-button">9</button>
       <button class="button sudoku-clear-cell-button">clear</button>
     </div>
+
+    <p style="color: white;">Use arrow keys to add numbers. Hold SHIFT to add number as a small note in the corner of a cell</p>
+    <br>
 
     <div class="sudoku-settings-inputs">
       <button class="button sudoku-cheat-once">💡 Cheat 1 cell</button>
