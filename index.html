@@ -14,20 +14,13 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./modal.css">
     <style>
+      html,body {
+        height: 100%;
+      }
       .hidden {
         display: none;
-      }
-      footer {
-        background: #222;
-        color: #ffffff42;
-        width: 100%;
-        margin-bottom: -33px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
       }
     </style>
     <link rel="stylesheet" href="./sudoku.responsive.css">
@@ -1548,14 +1541,7 @@
       <br>
     </section>
 
-    <section class="new-game hidden">
-      <div class="adjust-difficulty">
-        <span>Easy</span>
-        <input class="difficulty" max="6" min="1" type="range" value="2">
-        <span>Inhuman</span>
-      </div>
-      <button>Start</button>
-    </section>
+   
     
     <p>
       <label class="sudoku-arrow-key-label">
@@ -1563,9 +1549,22 @@
       </label>
     </p>
 
-    <footer>
-      Created by Hagge
-    </footer>
+    <div class="modal new-game hidden">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+         <section style="margin-top: 50px;">
+          <h1>New game</h1>
+          <br>
+          <div class="adjust-difficulty">
+            <span>Easy</span>
+            <input class="difficulty" min="0" max="5" type="range" value="2">
+            <span>Inhuman</span>
+          </div>
+          <br>
+          <button class="new-game-start">Start</button>
+        </section>
+      </div>
+    </div>
 
     <script async src="./sudoku.js"></script>
   </body>

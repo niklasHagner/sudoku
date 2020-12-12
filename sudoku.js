@@ -393,11 +393,22 @@ function getCellAttributes(cell) {
   };
 }
 
+let newGameStartBtn = document.querySelector(".new-game-start");
+let newGameModal =document.querySelector(".new-game");
+let difficultyElement = document.querySelector(".difficulty");
 function newGame() {
-  document.querySelector(".new-game").classList.remove("hidden");
-  let difficultyInt = document.querySelector(".difficulty").value;
-  let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
-  generateNewSudoku(difficultyString);
+  newGameModal.classList.remove("hidden");
+  var modalClose = document.getElementsByClassName("modal-close")[0];
+  modalClose.addEventListener("click", () => {
+    newGameModal.classList.add("hidden");
+  });
+
+  newGameStartBtn.addEventListener("click", () => {
+    let difficultyInt = Number(difficultyElement.value);
+    let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
+    generateNewSudoku(difficultyString);
+    newGameModal.classList.add("hidden");
+  });
 }
 
 let DIFFICULTY_LEVELS = [ 
