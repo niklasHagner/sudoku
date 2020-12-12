@@ -18,7 +18,7 @@ function setupSudokuCellClickEvents() {
 }
 
 function setupClickEvents() {
-  setupSudokuCellClickEvents();
+  // setupSudokuCellClickEvents();
   setupMenuClickEvents();
 }
 
@@ -495,12 +495,17 @@ function generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex,
   `;
 }
 
+function main() {
+  setupClickEvents();
+  generateNewSudoku(DIFFICULTY_LEVELS[1]);
+}
+
 (function () {
   if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
-    setupClickEvents();
+    main();
   } else {
     document.addEventListener("DOMContentLoaded", () => {
-      setupClickEvents();
+      main();
     });
   }
 })();
