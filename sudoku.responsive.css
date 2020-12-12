@@ -1,28 +1,3 @@
-button {
-  cursor: pointer;
-  height: 40px;
-}
-.time {
-  font-weight: 20px;
-}
-.time .minutes,
-.time .seconds {
-  margin: 0 -2px;
-}
-.time .colon {
-  position: relative;
-  bottom: 1px;
-  margin: 0 -2px;
-}
-.adjust-difficulty {
-  width: 400px;
-  margin: auto;
-  text-align: center;
-}
-.difficulty-slider {
-  width: 150px;
-}
-
 .sudoku {
   display: grid;
   background-color: #222;
@@ -110,49 +85,6 @@ button {
   font-weight: normal;
 }
 
-.sudoku-number-inputs {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(10, 1fr);
-  max-width: 600px;
-  height: 30px;
-  margin: 0 auto 50px auto;
-}
-
-.sudoku-number-inputs .sudoku-input-number-button,
-.sudoku-number-inputs .sudoku-clear-cell-button {
-  min-width: 10px;
-  font-weight: bold;
-}
-
-.sudoku-settings-inputs {
-  display: grid;
-  grid-template-columns: repeat(7, auto);
-  gap: 10px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.sudoku-arrow-key-label {
-  font-size: 12px;
-}
-
-.sudoku-explanation {
-  max-width: 600px;
-  min-width: 200px;
-  margin: 40px auto;
-  padding: 10px;
-  font-size: 12px;
-  text-align: left;
-  background: rgba(230,230,230,0.5);
-}
-
-.sudoku-explanation h3 {
-  font-weight: bold; 
-  font-size: 1.1em;
-}
-
-
 @media (min-width: 768px) {
   .sudoku {
     margin-bottom: 50px;
@@ -216,9 +148,9 @@ button {
     padding: 0;
   }
 
-  .sudoku {
+  /* .sudoku {
     width: 100vw;
-  }
+  } */
   .sudoku .cell .value {
     font-size: 7vw;
     line-height: 7vw;
@@ -262,16 +194,6 @@ button {
   .sudoku-note-cell--9 {
     top: 6.83333vw;
     left: 6.83333vw;
-  }
-
-  .sudoku-number-inputs {
-    grid-template-columns: repeat(3, 1fr);
-    height: auto;
-  }
-
-  .sudoku-settings-inputs {
-    grid-template-columns: repeat(3, auto);
-    height: auto;
   }
 }
 
