@@ -12,13 +12,23 @@ const gameState = {
   },
 };
 
-function setupClickEvents() {
+function setupSudokuCellClickEvents() {
   cells = Array.from(document.getElementsByClassName("cell"));
   cells.forEach(cellClicked);
+}
 
+function setupClickEvents() {
+  setupSudokuCellClickEvents();
+  setupMenuClickEvents();
+}
+
+function setupMenuClickEvents() {
   const timeEl = document.getElementsByClassName("time")[0];
   const minuteEl = timeEl.getElementsByClassName("minutes")[0];
   const secondEl = timeEl.getElementsByClassName("seconds")[0];
+
+  const newGameButton = document.querySelector(".sudoku-new");
+  newGameButton.addEventListener("click", newGame);
 
   startTimer();
 
@@ -381,6 +391,97 @@ function getCellAttributes(cell) {
     square: cell.getAttribute("data-square-index"),
     solution: cell.getAttribute("data-solution"),
   };
+}
+
+function newGame() {
+  document.querySelector(".new-game").classList.remove("hidden");
+  let difficultyInt = document.querySelector(".difficulty").value;
+  let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
+  generateNewSudoku(difficultyString);
+}
+
+let DIFFICULTY_LEVELS = [ 
+  "easy",
+  "medium",
+  "hard",
+  "very-hard",
+  "insane",
+  "inhuman",
+];
+function generateNewSudoku(difficultyLevel) {
+
+  difficultyLevel = difficultyLevel ? difficultyLevel : DIFFICULTY_LEVELS[1];
+  //sudoku.generate depends on puzzle-generator.js being loaded
+  if (!sudoku) {
+    alert("error, sudoku-generator is not loaded");
+    return;
+  }
+  let puzzleString = sudoku.generate(difficultyLevel);
+  console.log(sudoku.board_string_to_grid(puzzleString));
+  let puzzleArray = puzzleString.split("");
+  let puzzleSolutionArray = sudoku.solve(puzzleString).split("");
+  let innerSudokuHtmlString = "";
+  for(let i = 0; i<puzzleArray.length; i++) {
+    let initialValue = puzzleArray[i];
+    if (initialValue === ".") {
+      initialValue = "";
+    }
+    let cellIndex = i;
+    let solution = puzzleSolutionArray[i];
+    let rowIndex = Math.floor(i/9);
+    let colIndex = i - (rowIndex * 9);
+    let squareIndex = getSquareIndex(colIndex, rowIndex);
+    let cellHtml = generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex, squareIndex);
+    innerSudokuHtmlString += cellHtml;
+  }
+  document.querySelector(".sudoku").innerHTML = innerSudokuHtmlString;
+  setupSudokuCellClickEvents();
+  
+  function getSquareIndex(colIndex, rowIndex) {
+    if (colIndex < 3) { 
+      if (rowIndex < 3) return 0;
+      else if (rowIndex < 6) return 3;
+      else return 6;
+    }
+    if (colIndex < 6) { 
+      if (rowIndex < 3) return 1;
+      else if (rowIndex < 6) return 4;
+      else return 7;
+    }
+    else { 
+      if (rowIndex < 3) return 2;
+      else if (rowIndex < 6) return 5;
+      else return 8;
+    }
+  }
+}
+
+function generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex, squareIndex) {
+  let immutabilityClass = initialValue ? "immutable" : "";
+  let borderClass = "";
+  if (colIndex === 2 || colIndex === 5) { 
+    borderClass = "border-right";
+  }
+  if (rowIndex === 2 || rowIndex === 5) {
+    borderClass += " border-bottom";
+  }
+
+  return `
+    <div class="cell ${immutabilityClass} ${borderClass}" data-solution="${solution}" data-cell-index="${cellIndex}" data-row-index="${rowIndex}" data-column-index="${colIndex}" data-square-index="${squareIndex}">
+
+      <span class="value">${initialValue}</span>
+
+      <span class="sudoku-note-cell sudoku-note-cell--1"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--2"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--3"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--4"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--5"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--6"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--7"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--8"></span>
+      <span class="sudoku-note-cell sudoku-note-cell--9"></span>
+    </div>
+  `;
 }
 
 (function () {

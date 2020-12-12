@@ -23,6 +23,7 @@
         margin-top: 50px;
       }
     </style>
+    <script src="./puzzle-generator.js"></script>
   </head>
 
   <body>
@@ -1512,7 +1513,7 @@
     <div class="sudoku-settings-inputs">
       <button class="button sudoku-cheat-once">💡 Cheat 1 cell</button>
       <button class="button sudoku-cheat-a-lot">🔮 Cheat 40 cells</button>
-      <!-- <button class="button sudoku-new">❄️ New game</button> -->
+      <button class="button sudoku-new">❄️ New game</button>
       <button class="button sudoko-restart">♻ Restart</button>
       <button class="button sudoku-toggle-time">🕒 Show timer</button>
       <button class="button sudoku-toggle-pause">❚❚ Pause</button>
@@ -1541,10 +1542,11 @@
 
     <section class="new-game hidden">
       <div class="adjust-difficulty">
-        <span>Lätt</span>
-        <input class="difficulty" max="7" min="1" type="range" value="4">
-        <span>Svårt</span>
+        <span>Easy</span>
+        <input class="difficulty" max="6" min="1" type="range" value="2">
+        <span>Inhuman</span>
       </div>
+      <button>Start</button>
     </section>
     
     <p>
