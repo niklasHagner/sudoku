@@ -35,13 +35,13 @@
 
     <div class="hidden sudoku__message">
       <h1>🎉You're a winner!</h1>
-      <p>Det tog <span id="sudoku-win-time"></span></p>
-      <p>Vill du spela igen?</p>
-      <button class="button sudoko-restart">♻ Starta om</button>
+      <p>It took <span id="sudoku-win-time"></span></p>
+      <p>Play again?</p>
+      <button class="button sudoko-restart">♻ New game</button>
     </div>
 
 
-    <div class="sudoku-number-inputs hidden-desktop">
+    <div class="sudoku-number-inputs">
       <button class="button sudoku-input-number-button">1</button>
       <button class="button sudoku-input-number-button">2</button>
       <button class="button sudoku-input-number-button">3</button>
@@ -51,7 +51,13 @@
       <button class="button sudoku-input-number-button">7</button>
       <button class="button sudoku-input-number-button">8</button>
       <button class="button sudoku-input-number-button">9</button>
-      <button class="button sudoku-clear-cell-button">clear</button>
+      <button class="button sudoku-clear-cell-button" style="font-size: 1em;">clear</button>
+      <!-- <button class="button sudoku-clear-all-button" style="font-size: 0.5em;">clear all</button> -->
+      <button class="button sudoku-note-mode-button" style="font-size: 1em;">
+        <input type="checkbox" id="note-taking-checkbox" name="note-taking-checkbox" value="false">
+        <label for="note-taking-checkbox">note</label>
+      </button>
+    
     </div>
 
     <p style="color: white;">Use arrow keys to add numbers. Hold SHIFT to add number as a small note in the corner of a cell</p>
@@ -94,6 +100,7 @@
         <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
       </label>
     </p>
+    <br>
 
     <div class="modal new-game hidden">
       <div class="modal-content">

@@ -32,24 +32,23 @@ function setupMenuClickEvents() {
 
   startTimer();
 
-  const togglePauseButton = document.getElementsByClassName(
-    "sudoku-toggle-pause"
-  )[0];
+  const togglePauseButton = document.getElementsByClassName("sudoku-toggle-pause")[0];
   togglePauseButton.addEventListener("click", togglePause);
 
-  const toggleTimeButton = document.getElementsByClassName(
-    "sudoku-toggle-time"
-  )[0];
+  const toggleTimeButton = document.getElementsByClassName("sudoku-toggle-time")[0];
   toggleTimeButton.addEventListener("click", toggleTime);
 
-  const checkbox = document.getElementsByClassName(
-    "sudoku-arrow-key-checkbox"
-  )[0];
+  const checkbox = document.getElementsByClassName("sudoku-arrow-key-checkbox")[0];
   checkbox.addEventListener("change", () => {
     const shouldHijackArrowNavigation = checkbox && checkbox.checked;
     hijackArrowKeyNavigation(shouldHijackArrowNavigation);
   });
 
+  const noteTakingModeButton = document.getElementsByClassName("sudoku-note-mode-button")[0];
+  noteTakingModeButton.addEventListener("click", () => {
+    noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
+  });
+  const noteTakingCheckbox = document.getElementById("note-taking-checkbox");
   //Prevent arrow-keys from page-scrolling. We want the arrow-keys to be used exclusively for sudoku navigation.
   const shouldHijackArrowNavigation = checkbox && checkbox.checked;
   hijackArrowKeyNavigation(shouldHijackArrowNavigation);
@@ -62,7 +61,13 @@ function setupMenuClickEvents() {
       const key = event.target.innerText;
       const numberValue = Number(key);
       const activeCellProps = getCellAttributes(activeCell);
-      handleNumberInput(numberValue, activeCell, activeCellProps);
+      
+      let isTakingNotes = noteTakingCheckbox.checked;
+      if (isTakingNotes) {
+        addNumberAsNoteInActiveCell(numberValue);
+      } else {
+        handleNumberInput(numberValue, activeCell, activeCellProps);
+      }
     });
   });
 
@@ -143,7 +148,7 @@ function setupMenuClickEvents() {
       togglePauseButton.innerText = "▷ Resume";
     } else {
       startTimer();
-      togglePauseButton.innerText = "❚❚ Pausa";
+      togglePauseButton.innerText = "❚❚ Pause";
     }
   }
 
@@ -177,6 +182,28 @@ function cellClicked(cell) {
   });
 }
 
+function addNumberAsNoteInActiveCell(numberToNote) {
+  const note = activeCell.getElementsByClassName(`sudoku-note-cell--${numberToNote}`)[0];
+    
+  activeCell.firstElementChild.innerText = "";
+  activeCell.classList.remove("error");
+  
+  if (note.innerText !== "") {
+    note.innerText = "";
+  } else {
+    note.innerText = numberToNote;
+  }
+}
+
+function handleShiftKeyPlusNumberKeyPress(event) {
+  if (event.code.indexOf("Digit") !== 0) {
+    return;
+  }
+  const parsedNumber = event.code.replace("Digit", "");
+  const numberToNote = Number(parsedNumber);
+  addNumberAsNoteInActiveCell(numberToNote);
+}
+
 function keyDownEvent(event) {
   const key = event.key;
 
@@ -185,31 +212,16 @@ function keyDownEvent(event) {
     return;
   }
 
-  const activeCellProps = getCellAttributes(activeCell);
-
-  //Enter a note rather than a value when the user inputs shift + number
-  //In this case we must parse `event.code` to extract the number value.
-  //(For example: `event.keycode` will have the value "Digit2" when pressing Shift + 2 )
+  
+  //If user input is `shift + number` we're doing note-taking and must add special parsing of keycodes
+  //(For example Shift + 2 will result in `event.keycode` being "Digit2")
   if (event.shiftKey) {
-    if (event.code.indexOf("Digit") === 0) {
-      const parsedNumber = event.code.replace("Digit", "");
-      const outputNumber = Number(parsedNumber);
-      const note = activeCell.getElementsByClassName(
-        `sudoku-note-cell--${outputNumber}`
-      )[0];
-
-      activeCell.firstElementChild.innerText = "";
-      activeCell.classList.remove("error");
-
-      if (note.innerText !== "") {
-        note.innerText = "";
-      } else {
-        note.innerText = outputNumber;
-      }
-    }
+    handleShiftKeyPlusNumberKeyPress(event);
     return;
   }
-
+  
+  const activeCellProps = getCellAttributes(activeCell);
+    
   if (!Number.isNaN(key) && Number(key) >= 1 && Number(key) <= 9) {
     handleNumberInput(key, activeCell, activeCellProps);
     return;

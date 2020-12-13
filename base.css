@@ -3,9 +3,9 @@
 body {
     text-align: center;
     font-family: Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: #5f2c82; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #5f2c82, #49a09d); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #5f2c82, #49a09d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #124d77; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3a3c8f, #124d77); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3a3c8f, #124d77); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
@@ -40,7 +40,6 @@ h1 {
 
 button {
   cursor: pointer;
-  height: 40px;
   min-width: 40px;
   
   display: inline-flex;
@@ -72,8 +71,14 @@ button:active {
 
 .sudoku-number-inputs {
   gap: 10px;
-  height: 30px;
   margin: 0 auto 50px auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sudoku-number-inputs button {
+  height: 40px;
 }
 
 .sudoku-settings-inputs {
@@ -85,7 +90,7 @@ button:active {
 @media (max-width: 767px) { 
   .sudoku-number-inputs {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     height: auto;
   }
 
