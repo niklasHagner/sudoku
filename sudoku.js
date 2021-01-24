@@ -412,7 +412,7 @@ function autoSolveCells(cellsToSolve) {
 
 function getCellAttributes(cell) {
   if (!cell) {
-    alert("Please, select a square first!");
+    alert("Select a square before entering a number");
   }
   return {
     index: cell.getAttribute("data-cell-index"),
