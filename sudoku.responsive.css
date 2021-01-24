@@ -37,16 +37,18 @@
 .sudoku .cell.border-right {
   border-right: solid 4px #000000ad;
 }
-
+.sudoku .cell.active {
+  background-color: rgb(253, 197, 13);
+}
 .sudoku .cell.active .value {
   border-color: rgb(253, 197, 13);
 }
 .sudoku .cell.immutable {
   background-color: #e6e5e5bf;
 }
-.sudoku .cell:not(.immutable):hover {
+/* .sudoku .cell:not(.immutable):hover {
   background-color: rgba(200, 230, 250);
-}
+} */
 .sudoku .cell.error,
 .sudoku .cell.error:hover {
   background-color: #e58080;
