@@ -527,7 +527,7 @@ function generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex,
 
 function main() {
   setupClickEvents();
-  generateNewSudoku(DIFFICULTY_LEVELS[2]);
+  generateNewSudoku(DIFFICULTY_LEVELS[3]);
 }
 
 (function () {
