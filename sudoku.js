@@ -47,8 +47,24 @@ function setupMenuClickEvents() {
   const noteTakingModeButton = document.getElementsByClassName("sudoku-note-mode-button")[0];
   noteTakingModeButton.addEventListener("click", () => {
     noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
+    toggleButtonActiveClass();
   });
+  
   const noteTakingCheckbox = document.getElementById("note-taking-checkbox");
+  noteTakingCheckbox.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleButtonActiveClass();
+  });
+
+  function toggleButtonActiveClass() {
+    var isChecked = noteTakingCheckbox.checked;
+    if (isChecked) {
+      noteTakingModeButton.classList.add("active");
+    } else {
+      noteTakingModeButton.classList.remove("active");
+    }
+  }
+
   //Prevent arrow-keys from page-scrolling. We want the arrow-keys to be used exclusively for sudoku navigation.
   const shouldHijackArrowNavigation = checkbox && checkbox.checked;
   hijackArrowKeyNavigation(shouldHijackArrowNavigation);
