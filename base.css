@@ -42,14 +42,21 @@ button {
 }
 
 button:hover {
-  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-  background-color:#0061a7;
+  border: 1px solid #05141fab;
+  outline: none;
 }
 
-button:active {
+@media (hover: hover) {
+  button:hover {
+    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    background-color:#0061a7;
+  }
+}
+
+/* button:active {
   position:relative;
   top:1px;
-}
+} */
 
 button.button.sudoku-note-mode-button.active {
   background: gold;
