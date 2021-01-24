@@ -1,6 +1,6 @@
 .sudoku {
   display: grid;
-  background-color: #222;
+  /* background-color: #222; */
   grid-template-columns: repeat(9, 1fr);
   margin: 10px 0;
   grid-gap: 1px;
@@ -23,7 +23,7 @@
   box-sizing: border-box;
   font-weight: 700;
   transition: background-color 200ms linear;
-  background-color: white;
+  background-color: rgba(255,255,255,0.5);
 }
 .sudoku .cell--animated {
   background-color: rgba(255, 255, 200, 0.5);
@@ -34,19 +34,19 @@
   color: #333;
 }
 .sudoku .cell.border-bottom {
-  border-bottom: solid 4px #000;
+  border-bottom: solid 4px #000000ad;
 }
 .sudoku .cell.border-right {
-  border-right: solid 4px #000;
+  border-right: solid 4px #000000ad;
 }
 .sudoku .cell.active:hover {
   background-color: transparent;
 }
 .sudoku .cell.active .value {
-  border-color: rgb(180,200,250);
+  border-color: rgb(253, 197, 13);
 }
 .sudoku .cell.immutable {
-  background-color: #e6e5e5;
+  background-color: #e6e5e5bf;
 }
 .sudoku .cell:not(.immutable):hover {
   background-color: rgba(200, 230, 250);

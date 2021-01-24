@@ -1,62 +1,44 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 
 body {
     text-align: center;
     font-family: Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: #124d77; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #3a3c8f, #124d77); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #3a3c8f, #124d77); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.sudoku {
+  font-family: 'Coiny', cursive;
+}
 
 h1 {
-    font-family: Raleway, sans-serif;
+    /* font-family: Raleway, sans-serif; */
+    font-family: 'Ceviche One', cursive;
     line-height: 1;
     font-size: 22px;
     margin: 8px 0;
 }
 
-.outlined-text {
-  padding: 6px 0;
-  --fill-color: white;
-  position: relative;
-  display: block;
-  padding: 4px 0;
-  font-family: Raleway, sans-serif;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-text-stroke: 1px var(--fill-color);
-  background: linear-gradient(90deg, var(--fill-color) 0%, var(--fill-color) 100%);
-  background-size: 0;
-  background-position: left;
-  background-repeat: no-repeat;
-  color: transparent;
-  -webkit-background-clip: text;
-    background-clip: text;
-  transition: 0.5s linear;
-  letter-spacing: 7px;
-} 
-
 button {
   cursor: pointer;
   min-width: 40px;
-  
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  box-shadow:inset 0px 1px 0px 0px #54a3f7;
-  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
-  background-color:#007dc1;
-  border-radius:3px;
-  border:1px solid #124d77;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:13px;
-  padding:6px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #154682;
+  /* box-shadow: inset 0px 1px 0px 0px #54a3f785; */
+  /* background: linear-gradient(to bottom, #007dc100 5%, #0061a791 100%); */
+  /* background-color: #007dc159; */
+  border-radius: 3px;
+  border: 1px solid #05141fab;
+  color: #ffffff;
+  font-family: 'Coiny', cursive;
+  font-size: 16px;
+  padding: 6px 24px;
+  text-decoration: none;
+  /* text-shadow: 0px 1px 0px #154682; */
+  background: #3a668c63;
 }
 
 button:hover {
@@ -67,6 +49,10 @@ button:hover {
 button:active {
   position:relative;
   top:1px;
+}
+
+button.active { /* used for buttons with checked checkboxes inside */
+  border: solid 5px gold;
 }
 
 .sudoku-number-inputs {
@@ -86,38 +72,42 @@ button:active {
   margin: 0 auto;
 }
 
+.sudoku-number-inputs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: auto;
+}
 
 @media (max-width: 767px) { 
-  .sudoku-number-inputs {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    height: auto;
+  .sudoku-number-inputs { 
+    width: 100%;
   }
-
   .sudoku-number-inputs button {
     height: 50px;
     font-size: 30px;
   }
 
-
-  .sudoku-settings-inputs {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    height: auto;
+  button.sudoku-clear-cell-button,
+  button.sudoku-note-mode-button {
+    font-size: 1em;
   }
 }
 
 @media (min-width: 768px) { 
-
+  .sudoku-number-inputs {
+    width: 459px; /*same as sudoku*/
+  }
+  button.sudoku-clear-cell-button,
+  button.sudoku-note-mode-button {
+    font-size: 13px;
+  }
 }
 
 .sudoku-number-inputs button {
-  font-weight: bold;
+  /* font-weight: bold; */
   min-width: 40px;
   max-width: 100px;
 }
-
-
 
 .time {
   font-weight: 20px;
