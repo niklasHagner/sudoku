@@ -45,16 +45,18 @@ function setupMenuClickEvents() {
   });
 
   const noteTakingModeButton = document.getElementsByClassName("sudoku-note-mode-button")[0];
-  noteTakingModeButton.addEventListener("click", () => {
+  const noteTakingCheckbox = document.getElementById("note-taking-checkbox");
+  
+  noteTakingModeButton.addEventListener("click", (e) => {
+    e.stopPropagation();
     noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
     toggleButtonActiveClass();
-  });
+  }, true);
   
-  const noteTakingCheckbox = document.getElementById("note-taking-checkbox");
   noteTakingCheckbox.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleButtonActiveClass();
-  });
+  }, true);
 
   function toggleButtonActiveClass() {
     var isChecked = noteTakingCheckbox.checked;

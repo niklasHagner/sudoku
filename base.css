@@ -51,8 +51,9 @@ button:active {
   top:1px;
 }
 
-button.active { /* used for buttons with checked checkboxes inside */
-  border: solid 5px gold;
+button.button.sudoku-note-mode-button.active {
+  background: gold;
+  color: #222;
 }
 
 .sudoku-number-inputs {
@@ -80,7 +81,9 @@ button.active { /* used for buttons with checked checkboxes inside */
 
 @media (max-width: 767px) { 
   .sudoku-number-inputs { 
-    width: 100%;
+    margin-right: 6px;
+    margin-left: 6px;
+    grid-template-columns: repeat(3, 1fr);
   }
   .sudoku-number-inputs button {
     height: 50px;
