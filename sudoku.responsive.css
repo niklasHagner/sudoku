@@ -46,9 +46,6 @@
 .sudoku .cell.immutable {
   background-color: #e6e5e5bf;
 }
-/* .sudoku .cell:not(.immutable):hover {
-  background-color: rgba(200, 230, 250);
-} */
 .sudoku .cell.error,
 .sudoku .cell.error:hover {
   background-color: #e58080;
@@ -81,14 +78,13 @@
   left: 0;
   font-size: 11px;
   font-weight: normal;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 @media (hover: hover) {
   .sudoku .cell:hover .tiny-number {
     color: #333;
-  }
-  .sudoku .cell.active:hover {
-    background-color: rgba(255,255,255,0.5);
   }
 }
 
@@ -186,7 +182,7 @@
   }
   .sudoku-note-cell--6 {
     top: 3.66667vw;
-    left: 3.66667vw;
+    left: 6.83333vw;
   }
   .sudoku-note-cell--7 {
     top: 6.83333vw;

@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 body {
     text-align: center;
     font-family: Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1C1B1B;
 }
 
 .sudoku {
-  font-family: 'Coiny', cursive;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 h1 {
-    /* font-family: Raleway, sans-serif; */
     font-family: 'Ceviche One', cursive;
     line-height: 1;
-    font-size: 22px;
+    font-size: 40px;
     margin: 8px 0;
+    color: #37E6CA;
+    border-bottom: solid 3px #37e6cab8;
 }
 
 button {
@@ -27,18 +26,14 @@ button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  /* box-shadow: inset 0px 1px 0px 0px #54a3f785; */
-  /* background: linear-gradient(to bottom, #007dc100 5%, #0061a791 100%); */
-  /* background-color: #007dc159; */
   border-radius: 3px;
   border: 1px solid #05141fab;
-  color: #ffffff;
-  font-family: 'Ceviche One', cursive;
+  color: #1e0d0d;
+  font-family: 'Roboto Condensed', cursive;
   font-size: 16px;
   padding: 6px 24px;
   text-decoration: none;
-  /* text-shadow: 0px 1px 0px #154682; */
-  background: #3a668c63;
+  background: #37E6CA;
 }
 
 button:hover {
@@ -48,15 +43,9 @@ button:hover {
 
 @media (hover: hover) {
   button:hover {
-    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-    background-color:#0061a7;
+    background-color:#239a87;
   }
 }
-
-/* button:active {
-  position:relative;
-  top:1px;
-} */
 
 button.button.sudoku-note-mode-button.active {
   background: gold;
