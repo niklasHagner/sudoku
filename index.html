@@ -29,14 +29,14 @@
   </head>
 
   <body>
-    <h1 style="font-size: 40px;" class="outlined-text">Sudoku</h1>
+    <h1 style="font-size: 40px; color: white;">Sudoku</h1>
     <article class="sudoku">
     </article>
 
     <div class="hidden sudoku__message">
       <h1>🎉You're a winner!</h1>
-      <p>It took <span id="sudoku-win-time"></span></p>
-      <p>Play again?</p>
+      <p>Time spent: <span id="sudoku-win-time"></span></p>
+      <br><br><br>
       <button class="button sudoko-restart">♻ New game</button>
     </div>
 
@@ -51,26 +51,20 @@
       <button class="button sudoku-input-number-button">7</button>
       <button class="button sudoku-input-number-button">8</button>
       <button class="button sudoku-input-number-button">9</button>
-      <button class="button sudoku-clear-cell-button" style="font-size: 1em;">clear</button>
+      <button class="button sudoku-clear-cell-button">clear</button>
       <!-- <button class="button sudoku-clear-all-button" style="font-size: 0.5em;">clear all</button> -->
-      <button class="button sudoku-note-mode-button" style="font-size: 1em;">
+      <button class="button sudoku-note-mode-button">
         <input type="checkbox" id="note-taking-checkbox" name="note-taking-checkbox" value="false">
         <label for="note-taking-checkbox">note</label>
       </button>
     
     </div>
 
-    <p style="color: white;">Use arrow keys to add numbers. Hold SHIFT to add number as a small note in the corner of a cell</p>
     <br>
 
     <div class="sudoku-settings-inputs">
-      <button class="button sudoku-cheat-once">💡 Cheat 1 cell</button>
-      <button class="button sudoku-cheat-a-lot">🔮 Cheat 40 cells</button>
       <button class="button sudoku-new">❄️ New game</button>
-      <button class="button sudoko-restart">♻ Restart</button>
-      <button class="button sudoku-toggle-time">🕒 Show timer</button>
-      <button class="button sudoku-toggle-pause">❚❚ Pause</button>
-      <!-- <button class="button sudoku-save">📙 Save</button> -->
+      <button class="button sudoku-cheat-once">💡 Get 1 hint</button>
     </div>
 
     <p class="time hidden" style="margin-top:25px; color:white;">
@@ -81,9 +75,17 @@
    
 
     <section class="sudoku-explanation">
-      <h3>Play this sudoku with your keyboard:</h3>
-      <p>Use arrow-keys to navigate, press numbers to add them, hold SHIFT while entering the number to add it as a 'note' in the margin. Do it again to remove the note. Press BACKSPACE to clear the big number in a cell.</p>
+      <h3>For Keyboard users:</h3>
+      <p>Arrow keys = navigate</p>
+      <p>Shift + Number = add or remove a note</p>
+      <p>Backspace = clear cell</p>
+      <p>
+        <label class="sudoku-arrow-key-label">
+          <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
+        </label>
+      </p>
       <br>
+
       <h3>How to play sudoku - Beginner tips</h3>
       <ul>
         <li>The grey boxes are pre-filled numbers to help you get started</li>
@@ -93,14 +95,13 @@
       <br>
     </section>
 
-   
-    
-    <p>
-      <label class="sudoku-arrow-key-label">
-        <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
-      </label>
-    </p>
-    <br>
+    <div class="sudoku-settings-inputs">
+      <button class="button sudoku-cheat-a-lot">🔮 Cheat </button>
+      <button class="button sudoko-restart">♻ Restart</button>
+      <button class="button sudoku-toggle-time">🕒 Show timer</button>
+      <button class="button sudoku-toggle-pause">❚❚ Pause</button>
+    </div>
+
 
     <div class="modal new-game hidden">
       <div class="modal-content">
