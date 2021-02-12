@@ -221,6 +221,16 @@ function handleShiftKeyPlusNumberKeyPress(event) {
   addNumberAsNoteInActiveCell(numberToNote);
 }
 
+function clearEverything() {
+  const cells = Array.from(document.querySelectorAll(".cell"));
+  cells.forEach((cell) => {
+    cell.firstElementChild.innerText = "";
+    cell.classList.remove("valid");
+    cell.classList.remove("error");
+    clearNotes(cell);
+  });
+}
+
 function keyDownEvent(event) {
   const key = event.key;
 
@@ -253,6 +263,15 @@ function keyDownEvent(event) {
 }
 
 function clearCell(cell) {
+  if (!cell) {
+    if (confirm("You haven't selected a specific cell. Do you want to clear everything?")) {
+      
+    } else {
+      // Do nothing!
+      console.log('Thing was not saved to the database.');
+    }
+    return;
+  }
   cell.firstElementChild.innerText = "";
   cell.classList.remove("valid");
   cell.classList.remove("error");
