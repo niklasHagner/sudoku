@@ -49,12 +49,11 @@ function setupMenuClickEvents() {
   
   noteTakingModeButton.addEventListener("click", (e) => {
     e.stopPropagation();
-    noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
-    toggleButtonActiveClass();
-  }, true);
-  
-  noteTakingCheckbox.addEventListener("click", (e) => {
-    e.stopPropagation();
+    if (e.target && e.target.id === "note-taking-checkbox") {
+        
+    } else {
+      noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
+    }
     toggleButtonActiveClass();
   }, true);
 
