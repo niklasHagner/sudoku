@@ -10,6 +10,7 @@ const gameState = {
   timer: {
     interval: null,
   },
+  isTakingNotes: false
 };
 
 function setupSudokuCellClickEvents() {
@@ -54,15 +55,17 @@ function setupMenuClickEvents() {
     } else {
       noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
     }
-    toggleButtonActiveClass();
+    toggleNoteTakingActive();
   }, true);
 
-  function toggleButtonActiveClass() {
+  function toggleNoteTakingActive() {
     var isChecked = noteTakingCheckbox.checked;
     if (isChecked) {
       noteTakingModeButton.classList.add("active");
+      gameState.isTakingNotes = true;
     } else {
       noteTakingModeButton.classList.remove("active");
+      gameState.isTakingNotes = false;
     }
   }
 
@@ -79,7 +82,7 @@ function setupMenuClickEvents() {
       const numberValue = Number(key);
       const activeCellProps = getCellAttributes(activeCell);
       
-      let isTakingNotes = noteTakingCheckbox.checked;
+      let isTakingNotes = gameState.isTakingNotes;
       if (isTakingNotes) {
         addNumberAsNoteInActiveCell(numberValue);
       } else {
@@ -212,7 +215,7 @@ function addNumberAsNoteInActiveCell(numberToNote) {
   }
 }
 
-function handleShiftKeyPlusNumberKeyPress(event) {
+function handleNoteTakingViaKeyPress(event) {
   if (event.code.indexOf("Digit") !== 0) {
     return;
   }
@@ -242,8 +245,8 @@ function keyDownEvent(event) {
   
   //If user input is `shift + number` we're doing note-taking and must add special parsing of keycodes
   //(For example Shift + 2 will result in `event.keycode` being "Digit2")
-  if (event.shiftKey) {
-    handleShiftKeyPlusNumberKeyPress(event);
+  if (event.shiftKey || gameState.isTakingNotes) {
+    handleNoteTakingViaKeyPress(event);
     return;
   }
   
