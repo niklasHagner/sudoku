@@ -238,7 +238,7 @@ function keyDownEvent(event) {
   const key = event.key;
 
   if (!activeCell || activeCell.classList.contains("immutable")) {
-    handleArrowKeys(key);
+    handleArrowKeysAndWASD(key);
     return;
   }
 
@@ -262,7 +262,7 @@ function keyDownEvent(event) {
     return;
   }
 
-  handleArrowKeys(key);
+  handleArrowKeysAndWASD(key);
 }
 
 function clearCell(cell) {
@@ -306,7 +306,7 @@ function handleNumberInput(value, cell, cellProps) {
   clearNotes(cell);
 }
 
-function handleArrowKeys(key) {
+function handleArrowKeysAndWASD(key) {
   if (!activeCell) {
     activeCell = cells[Math.floor(cells.length / 2)];
   }
@@ -314,18 +314,18 @@ function handleArrowKeys(key) {
   let shouldMove = false;
   let possibleNewIndex = currentIndex;
 
-  if (key === "ArrowLeft") {
+  if (key === "ArrowLeft" || key === "a") {
     possibleNewIndex--;
     shouldMove = true;
-  } else if (key === "ArrowRight") {
+  } else if (key === "ArrowRight" || key === "d") {
     possibleNewIndex += 1;
     shouldMove = true;
-  } else if (key === "ArrowUp") {
+  } else if (key === "ArrowUp" || key === "w") {
     possibleNewIndex -= 9;
     if (possibleNewIndex >= 0) {
       shouldMove = true;
     }
-  } else if (key === "ArrowDown") {
+  } else if (key === "ArrowDown" || key === "s") {
     possibleNewIndex += 9;
     if (possibleNewIndex <= 80) {
       shouldMove = true;

@@ -54,8 +54,9 @@
         <input type="checkbox" id="note-taking-checkbox" name="note-taking-checkbox" value="false"><br>
         <label for="note-taking-checkbox">note</label>
       </button>
-    
     </div>
+
+    <p style="color: #eee">Press Shift + Number to add/remove notes</p>
 
     <br>
 
@@ -64,41 +65,23 @@
       <button class="button sudoku-cheat-once"><icon>💡</icon> Get 1 hint</button>
     </div>
 
-    <p class="time hidden" style="margin-top:25px; color:white;">
+    <div class="sudoku-settings-inputs">
+      <button class="button sudoku-cheat-a-lot"><icon>🔮</icon> Cheat </button>
+      <button class="button sudoko-restart"><icon>♻</icon> Restart</button>
+      <button class="button sudoku-toggle-time"><icon>🕒</icon> Toggle timer</button>
+      <button class="button sudoku-toggle-pause"><icon>❚❚</icon> Pause</button>
+    </div>
+
+    <p class="time" style="margin-top:25px; color:white;">
       <span class="minutes">0</span>
       <span class="colon">:</span>
       <span class="seconds">00</span>
     </p>
-   
-
-    <section class="sudoku-explanation">
-      <h3>For Keyboard users:</h3>
-      <p>Arrow keys = navigate</p>
-      <p>Shift + Number = add or remove a note</p>
-      <p>Backspace = clear cell</p>
-      <p>
-        <label class="sudoku-arrow-key-label">
-          <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
-        </label>
-      </p>
-      <br>
-    </section>
-
-    <div class="sudoku-settings-inputs">
-      <button class="button sudoku-cheat-a-lot"><icon>🔮</icon> Cheat </button>
-      <button class="button sudoko-restart"><icon>♻</icon> Restart</button>
-      <button class="button sudoku-toggle-time"><icon>🕒</icon> Show timer</button>
-      <button class="button sudoku-toggle-pause"><icon>❚❚</icon> Pause</button>
-    </div>
-
-    <br>
-    <p style="color: #e0d6d685; text-shadow: -1px 0px 0px black;">© 2021</p>
-    <br>
 
     <div class="modal new-game hidden">
       <div class="modal-content">
         <span class="modal-close">&times;</span>
-         <section style="margin-top: 50px;">
+        <section style="margin-top: 50px;">
           <h1>New game</h1>
           <br>
           <div class="adjust-difficulty">
@@ -111,6 +94,51 @@
         </section>
       </div>
     </div>
+
+
+    <section class="sudoku-explanation">
+      <h3>There's full keyboard support</h3>
+
+
+      <p>Takes notes</p>
+
+      <span class="key" data-keycode="39" style="width: auto">⇧ Shift</span>
+
+      <p>Clear cell</p>
+
+      <span class="key" data-keycode="39" style="width: auto">← BACKSPACE</span>
+
+      <p>Navigate with</p>
+
+      <span class="key" data-keycode="38">&#x2191;</span>
+    
+      <span class="key" data-keycode="37">&#x2190;</span>
+      <span class="key" data-keycode="40">&#x2193;</span>
+  
+      <span class="key" data-keycode="39">&#x2192;</span>
+
+      <p>...or</p>
+      
+      <span class="key" data-keycode="66">W</span>
+      <span class="key" data-keycode="65">A</span>
+      <span class="key" data-keycode="65">S</span>
+      <span class="key" data-keycode="65">D</span>
+
+      <p style="margin-top: 20px">
+        <label class="sudoku-arrow-key-label">
+          <input type="checkbox" class="sudoku-arrow-key-checkbox" checked=""> Use arrow-keys to navigate sudoku
+        </label>
+      </p>
+      <br>
+    </section>
+
+
+
+    <br>
+    <br>
+    <br>
+    <p style="color: #e0d6d685; text-shadow: -1px 0px 0px black;">Hagge © 2021</p>
+    <br>
 
     <script async src="./sudoku.js"></script>
   </body>
