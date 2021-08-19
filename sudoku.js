@@ -463,7 +463,17 @@ function autoSolveCells(cellsToSolve) {
 
 function getCellAttributes(cell) {
   if (!cell) {
-    // alert("Select a square before entering a number");
+    if (Toastify) {
+      Toastify({
+        text: `How about selecting a cell first?`,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        backgroundColor: "linear-gradient(to right, darkgreen, green)",
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function(){} // Callback after click
+      }).showToast();
+    }
     return;
   }
   return {
