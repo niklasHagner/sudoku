@@ -500,6 +500,19 @@ function newGame() {
     let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
     generateNewSudoku(difficultyString);
     newGameModal.classList.add("hidden");
+
+    if (Toastify) {
+      const startingDifficultyDisplay = (difficultyInt+1) + "/" + DIFFICULTY_LEVELS.length;
+      Toastify({
+        text: `New game started at difficulty ${startingDifficultyDisplay}!`,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        backgroundColor: "linear-gradient(to right, darkgreen, mediumseagreen)",
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function(){} // Callback after click
+      }).showToast();
+    }
   });
 }
 
@@ -511,6 +524,7 @@ let DIFFICULTY_LEVELS = [
   "insane",
   "inhuman",
 ];
+
 function generateNewSudoku(difficultyLevel) {
 
   difficultyLevel = difficultyLevel ? difficultyLevel : DIFFICULTY_LEVELS[1];
@@ -589,7 +603,10 @@ function generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex,
 
 function main() {
   setupClickEvents();
-  generateNewSudoku(DIFFICULTY_LEVELS[3]);
+  const difficitulyNumber = 3;
+  const startingDifficulty = DIFFICULTY_LEVELS[3];
+  const startingDifficultyDisplay = difficitulyNumber + "/" + DIFFICULTY_LEVELS.length;
+  generateNewSudoku(startingDifficulty);
 }
 
 (function () {
