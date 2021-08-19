@@ -462,7 +462,7 @@ function getCellAttributes(cell) {
 
 let newGameStartBtn = document.querySelector(".new-game-start");
 let newGameModal =document.querySelector(".new-game");
-let difficultyElement = document.querySelector(".difficulty");
+let difficultySlider = document.querySelector(".difficulty");
 function newGame() {
   newGameModal.classList.remove("hidden");
   var modalClose = document.getElementsByClassName("modal-close")[0];
@@ -471,7 +471,7 @@ function newGame() {
   });
 
   newGameStartBtn.addEventListener("click", () => {
-    let difficultyInt = Number(difficultyElement.value);
+    let difficultyInt = Number(difficultySlider.value);
     let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
     generateNewSudoku(difficultyString);
     newGameModal.classList.add("hidden");
