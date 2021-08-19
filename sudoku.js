@@ -98,6 +98,9 @@ function setupMenuClickEvents() {
       const key = event.target.innerText;
       const numberValue = Number(key);
       const activeCellProps = getCellAttributes(activeCell);
+      if (!activeCellProps) {
+        return;
+      }
       
       let isTakingNotes = gameState.isTakingNotes;
       if (isTakingNotes) {
@@ -450,6 +453,7 @@ function autoSolveCells(cellsToSolve) {
 function getCellAttributes(cell) {
   if (!cell) {
     // alert("Select a square before entering a number");
+    return;
   }
   return {
     index: cell.getAttribute("data-cell-index"),
