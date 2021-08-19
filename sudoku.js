@@ -448,6 +448,17 @@ function autoSolveCells(cellsToSolve) {
       getCellAttributes(cell)
     );
   });
+  if (Toastify) {
+    Toastify({
+      text: `Auto-solved ${cellsToSolve.length} ${cellsToSolve.length === 1 ? "cell" : "cells" }!`,
+      duration: 3000,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      backgroundColor: "linear-gradient(to right, purple, magenta)",
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      onClick: function(){} // Callback after click
+    }).showToast();
+  }
 }
 
 function getCellAttributes(cell) {
