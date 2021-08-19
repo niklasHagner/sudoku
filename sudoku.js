@@ -13,6 +13,9 @@ const gameState = {
   isTakingNotes: false
 };
 
+const sudokuEl = document.getElementsByClassName("sudoku")[0];
+
+
 function setupSudokuCellClickEvents() {
   cells = Array.from(document.getElementsByClassName("cell"));
   cells.forEach(cellClicked);
@@ -28,10 +31,11 @@ function setupMenuClickEvents() {
   const minuteEl = timeEl.getElementsByClassName("minutes")[0];
   const secondEl = timeEl.getElementsByClassName("seconds")[0];
 
-  const newGameButton = document.querySelector(".sudoku-new");
-  newGameButton.addEventListener("click", newGame);
 
   startTimer();
+
+  const newGameButton = document.querySelector(".sudoku-new");
+  newGameButton.addEventListener("click", newGame);
 
   const togglePauseButton = document.getElementsByClassName("sudoku-toggle-pause")[0];
   togglePauseButton.addEventListener("click", togglePause);
@@ -39,9 +43,22 @@ function setupMenuClickEvents() {
   const toggleTimeButton = document.getElementsByClassName("sudoku-toggle-time")[0];
   toggleTimeButton.addEventListener("click", toggleTime);
 
-  const checkbox = document.getElementsByClassName("sudoku-arrow-key-checkbox")[0];
-  checkbox.addEventListener("change", () => {
-    const shouldHijackArrowNavigation = checkbox && checkbox.checked;
+  const highlightErrorsButton = document.getElementsByClassName("sudoku-highlight-errors-button")[0];
+  const highlightErrorsCheckbox = document.getElementById("highlight-errors-checkbox");
+  
+  highlightErrorsButton.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "highlight-errors-checkbox") {
+      //the checkbox will change using it's default event
+    } else {
+      e.preventDefault();
+      highlightErrorsCheckbox.checked = !highlightErrorsCheckbox.checked;
+    }
+    sudokuEl.classList.toggle("show-error-status");
+  }, true);
+  
+  const arrowKeyCheckbox = document.getElementsByClassName("sudoku-arrow-key-checkbox")[0];
+  arrowKeyCheckbox.addEventListener("change", () => {
+    const shouldHijackArrowNavigation = arrowKeyCheckbox && arrowKeyCheckbox.checked;
     hijackArrowKeyNavigation(shouldHijackArrowNavigation);
   });
 
@@ -49,10 +66,10 @@ function setupMenuClickEvents() {
   const noteTakingCheckbox = document.getElementById("note-taking-checkbox");
   
   noteTakingModeButton.addEventListener("click", (e) => {
-    e.stopPropagation();
     if (e.target && e.target.id === "note-taking-checkbox") {
-        
+      //the checkbox will change using it's default event
     } else {
+      e.preventDefault();
       noteTakingCheckbox.checked = !noteTakingCheckbox.checked;
     }
     toggleNoteTakingActive();
@@ -70,7 +87,7 @@ function setupMenuClickEvents() {
   }
 
   //Prevent arrow-keys from page-scrolling. We want the arrow-keys to be used exclusively for sudoku navigation.
-  const shouldHijackArrowNavigation = checkbox && checkbox.checked;
+  const shouldHijackArrowNavigation = arrowKeyCheckbox && arrowKeyCheckbox.checked;
   hijackArrowKeyNavigation(shouldHijackArrowNavigation);
 
   const inputButtons = Array.from(
@@ -414,7 +431,6 @@ function secondsToMinutes(seconds) {
 }
 
 function showWinScreen() {
-  const sudokuEl = document.getElementsByClassName("sudoku")[0];
   sudokuEl.classList.add("sudoku--win");
   const sudokuMessageEl = document.getElementsByClassName("sudoku__message")[0];
   sudokuMessageEl.classList.remove("hidden");
@@ -433,7 +449,7 @@ function autoSolveCells(cellsToSolve) {
 
 function getCellAttributes(cell) {
   if (!cell) {
-    alert("Select a square before entering a number");
+    // alert("Select a square before entering a number");
   }
   return {
     index: cell.getAttribute("data-cell-index"),
