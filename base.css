@@ -188,3 +188,9 @@ button {
   color:white;
   border-color: #1c1c1c;
 }
+
+footer {
+  color: #e0d6d685; 
+  text-shadow: -1px 0px 0px black;
+  margin: 10px 0 20px;
+}
