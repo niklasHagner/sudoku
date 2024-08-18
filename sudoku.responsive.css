@@ -97,11 +97,6 @@
 }
 
 @media (min-width: 768px) {
-
-  .desktop-wrap {
-    display: flex;
-  }
-
   .sudoku {
     margin-bottom: 50px;
     width: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px);
