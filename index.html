@@ -26,7 +26,6 @@
       }
     </style>
     <link rel="stylesheet" href="./sudoku.responsive.css">
-    <script src="./puzzle-generator.js"></script>
   </head>
 
   <body>
@@ -99,13 +98,12 @@
         <section style="margin-top: 50px;">
           <h1>New game</h1>
           <br>
-          <div class="adjust-difficulty">
-            <span>Easy</span>
-            <input class="difficulty" min="0" max="5" type="range" value="2">
-            <span>Inhuman</span>
-          </div>
+          <button class="button new-game-start" data-difficulty="easy">Easy</button>
+          <button class="button new-game-start" data-difficulty="medium">Medium</button>
+          <button class="button new-game-start" data-difficulty="hard">Hard</button>
+          <button class="button new-game-start" data-difficulty="very-hard">Expert</button>
+
           <br>
-          <button class="new-game-start">Start</button>
         </section>
       </div>
     </div>

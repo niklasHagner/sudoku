@@ -128,14 +128,6 @@ button icon {
   bottom: 1px;
   margin: 0 -2px;
 }
-.adjust-difficulty {
-  width: 400px;
-  margin: auto;
-  text-align: center;
-}
-.difficulty-slider {
-  width: 150px;
-}
 
 .sudoku-arrow-key-label {
   font-size: 12px;

@@ -485,7 +485,7 @@ function getCellAttributes(cell) {
   };
 }
 
-let newGameStartBtn = document.querySelector(".new-game-start");
+let newGameStartButtons = [...document.querySelectorAll(".new-game-start")];
 let newGameModal =document.querySelector(".new-game");
 let difficultySlider = document.querySelector(".difficulty");
 function newGame() {
@@ -495,48 +495,37 @@ function newGame() {
     newGameModal.classList.add("hidden");
   });
 
-  newGameStartBtn.addEventListener("click", () => {
-    let difficultyInt = Number(difficultySlider.value);
-    let difficultyString = DIFFICULTY_LEVELS[difficultyInt];
-    generateNewSudoku(difficultyString);
-    newGameModal.classList.add("hidden");
-
-    if (Toastify) {
-      const startingDifficultyDisplay = (difficultyInt+1) + "/" + DIFFICULTY_LEVELS.length;
-      Toastify({
-        text: `New game started at difficulty ${startingDifficultyDisplay}!`,
-        duration: 3000,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        backgroundColor: "linear-gradient(to right, darkgreen, mediumseagreen)",
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        onClick: function(){} // Callback after click
-      }).showToast();
-    }
-  });
+  newGameStartButtons.forEach((btn) => { btn.addEventListener("click", handleNewGameStart); });
 }
 
-let DIFFICULTY_LEVELS = [ 
-  "easy",
-  "medium",
-  "hard",
-  "very-hard",
-  "insane",
-  "inhuman",
-];
+function handleNewGameStart(ev) {
+  let difficultyString = ev.target.getAttribute("data-difficulty");
+  generateNewSudoku(difficultyString);
+  newGameModal.classList.add("hidden");
+
+  if (Toastify) {
+    Toastify({
+      text: `New game started at difficulty ${difficultyString}!`,
+      duration: 3000,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      backgroundColor: "linear-gradient(to right, darkgreen, mediumseagreen)",
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      onClick: function(){} // Callback after click
+    }).showToast();
+  }
+}
 
 function generateNewSudoku(difficultyLevel) {
+  difficultyLevel = difficultyLevel ? difficultyLevel : "medium";
+  const { puzzle, solution } = generateSudoku(difficultyLevel);
+  console.log("Puzzle:");
+  console.log(puzzle);
+  console.log("Solution:");
+  console.log(solution);
+  let puzzleArray = puzzle.flat();
+  let puzzleSolutionArray = solution.flat();
 
-  difficultyLevel = difficultyLevel ? difficultyLevel : DIFFICULTY_LEVELS[1];
-  //sudoku.generate depends on puzzle-generator.js being loaded
-  if (!sudoku) {
-    alert("error, sudoku-generator is not loaded");
-    return;
-  }
-  let puzzleString = sudoku.generate(difficultyLevel);
-  console.log(sudoku.board_string_to_grid(puzzleString));
-  let puzzleArray = puzzleString.split("");
-  let puzzleSolutionArray = sudoku.solve(puzzleString).split("");
   let innerSudokuHtmlString = "";
   for(let i = 0; i<puzzleArray.length; i++) {
     let initialValue = puzzleArray[i];
@@ -603,10 +592,7 @@ function generateCellHtml(initialValue, solution, cellIndex, rowIndex, colIndex,
 
 function main() {
   setupClickEvents();
-  const difficitulyNumber = 3;
-  const startingDifficulty = DIFFICULTY_LEVELS[3];
-  const startingDifficultyDisplay = difficitulyNumber + "/" + DIFFICULTY_LEVELS.length;
-  generateNewSudoku(startingDifficulty);
+  generateNewSudoku();
 }
 
 (function () {
@@ -618,3 +604,75 @@ function main() {
     });
   }
 })();
+
+
+/* ----------------
+PUZZLE GENERATOR
+----------------- */
+const DIFFICULTY_LEVELS = {
+  "easy": 30,
+  "medium": 40,
+  "hard": 50,
+  "very-hard": 60
+};
+
+function generateEmptyGrid() {
+  return Array.from({ length: 9 }, () => Array(9).fill('.'));
+}
+
+function isValid(grid, row, col, num) {
+  for (let x = 0; x < 9; x++) {
+      if (grid[row][x] == num || grid[x][col] == num || grid[3 * Math.floor(row / 3) + Math.floor(x / 3)][3 * Math.floor(col / 3) + x % 3] == num) {
+          return false;
+      }
+  }
+  return true;
+}
+
+function fillGrid(grid) {
+  for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 9; col++) {
+          if (grid[row][col] == '.') {
+              let numbers = shuffle(Array.from({ length: 9 }, (_, i) => i + 1));
+              for (let num of numbers) {
+                  if (isValid(grid, row, col, num)) {
+                      grid[row][col] = num;
+                      if (fillGrid(grid)) {
+                          return true;
+                      }
+                      grid[row][col] = '.';
+                  }
+              }
+              return false;
+          }
+      }
+  }
+  return true;
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function removeNumbers(grid, count) {
+  while (count > 0) {
+      let row = Math.floor(Math.random() * 9);
+      let col = Math.floor(Math.random() * 9);
+      if (grid[row][col] != '.') {
+          grid[row][col] = '.';
+          count--;
+      }
+  }
+}
+
+function generateSudoku() {
+  let grid = generateEmptyGrid();
+  fillGrid(grid);
+  let solution = grid.map(row => row.slice()); // Copy the solution
+  removeNumbers(grid, 40); // Remove 40 numbers to create a puzzle
+  return { puzzle: grid, solution: solution };
+}
