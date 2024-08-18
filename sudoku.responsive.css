@@ -1,9 +1,17 @@
+:root {
+  --border-width: 3px;
+  --cell-width: 50px;
+}
+
 .sudoku {
+  font-family: "Bevan", serif;
+  background-color: #030100;
+  box-shadow: 10px 10px #030100;
+  border: solid var(--border-width) #030100;
   display: grid;
-  /* background-color: #222; */
   grid-template-columns: repeat(9, 1fr);
   margin: 10px 0;
-  grid-gap: 1px;
+  grid-gap: 3px;
 }
 
 .sudoku--win {
@@ -21,9 +29,8 @@
   position: relative;
   height: 9vw;
   box-sizing: border-box;
-  font-weight: 700;
   transition: background-color 200ms linear;
-  background-color: rgba(255,255,255,0.9);
+  background-color: white;
 }
 .sudoku .cell--animated {
   background-color: rgba(255, 255, 200, 0.9);
@@ -32,10 +39,10 @@
 
 
 .sudoku .cell.border-bottom {
-  border-bottom: solid 4px #000000ad;
+  border-bottom: solid 4px  #030100;
 }
 .sudoku .cell.border-right {
-  border-right: solid 4px #000000ad;
+  border-right: solid 4px  #030100;
 }
 .sudoku .cell.active {
   background-color: rgb(253, 197, 13);
@@ -44,7 +51,7 @@
   border-color: rgb(253, 197, 13);
 }
 .sudoku .cell.immutable {
-  background-color: #e6e5e5bf;
+  background-color: #dba52b;
 }
 .sudoku.show-error-status .cell.error,
 .sudoku.show-error-status .cell.error:hover {
@@ -89,19 +96,22 @@
   }
 }
 
-
-
 @media (min-width: 768px) {
+
+  .desktop-wrap {
+    display: flex;
+  }
+
   .sudoku {
     margin-bottom: 50px;
-    width: 459px; /*50px * 9 squares + 9 borders * 1px*/
-    height: 459px;
+    width: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px);
+    height: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px);
     margin-left: auto;
     margin-right: auto;
   }
   .sudoku .cell {
-    height: 50px;
-    width: 50px;
+    height: var(--cell-width);
+    width: var(--cell-width);
   }
   .sudoku .cell .value {
     font-size: 30px;

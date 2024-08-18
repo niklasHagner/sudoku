@@ -1,18 +1,8 @@
 <div class="sudoku-page">
 
     <h1>Sudoku</h1>
-    {% set cells = [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-    ] %}
     <article class="sudoku">
+        {% set cells = [ 1, 2, 3, 4, 5, 6, 7, 8, ] %}
         {% for row in cells %}
             {% set rowIndex = loop.index0 %}
             {% for cell in cells %}

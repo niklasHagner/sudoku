@@ -4,11 +4,8 @@
 body {
     text-align: center;
     font-family: Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: #1C1B1B;
-}
-
-.sudoku {
-  font-family: 'Roboto Condensed', sans-serif;
+    background: #f4e8c6; /*#edce4f;*/
+    padding: 1px;
 }
 
 h1 {
@@ -16,52 +13,12 @@ h1 {
     line-height: 1;
     font-size: 40px;
     margin: 8px 0;
-    color: #37E6CA;
-    border-bottom: solid 3px #37e6cab8;
-}
-
-button {
-  min-width: 40px;
-  min-height: 45px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid #05141fab;
-  color: #1e0d0d;
-  font-family: 'Roboto Condensed', cursive;
-  font-size: 16px;
-  padding: 6px 24px;
-  text-decoration: none;
-  background: #37E6CA;
-}
-
-button:hover {
-  border: 1px solid #05141fab;
-  outline: none;
-}
-
-button icon {
-  margin-right: 8px;
-}
-
-
-@media (hover: hover) {
-  button:hover {
-    background-color:#239a87;
-  }
-}
-
-button.button.sudoku-note-mode-button.active {
-  background: gold;
-  color: #222;
-}
-
-button {
-  margin: 6px
+    color: #dba52b;
+    border-bottom: solid 3px #dba52b;
 }
 
 .sudoku-number-inputs {
+  max-height: 120px;
   gap: 10px;
   margin: 0 auto 50px auto;
   display: inline-flex;
@@ -69,9 +26,45 @@ button {
   align-items: center;
 }
 
-.sudoku-number-inputs button {
-  height: 40px;
-  margin: 0;
+
+.button {
+  border: none;
+	text-decoration: none;	
+	padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+	border-radius: 10px;
+	font-family: 'Bevan', sans-serif;
+	font-size: 25px;
+	color: #FFF;
+  text-shadow: 1px 1px #ccc;
+  background-color: #F2CF66;
+	border-bottom: 5px solid #D1B358;
+	text-shadow: -1px -1px #a88828;
+  transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+  min-height: 60px;
+
+  &:active {
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color:#dba52b;
+      border-bottom: 5px solid #9b8133;
+    }
+  }
+}
+
+button.button.sudoku-note-mode-button.active {
+  background: orange;
+  color: #444;
+}
+
+button icon {
+  margin-right: 8px;
 }
 
 .sudoku-settings-inputs {
@@ -91,18 +84,22 @@ button {
     margin-left: 6px;
     grid-template-columns: repeat(4, 1fr);
   }
-  .sudoku-number-inputs button {
-    height: 50px;
-    font-size: 30px;
-  }
 
-  button.sudoku-clear-cell-button,
+  /* button.sudoku-clear-cell-button,
   button.sudoku-note-mode-button {
     font-size: 1em;
-  }
+  } */
+}
+
+.visible-desktop {
+  display: none;
 }
 
 @media (min-width: 768px) { 
+  .visible-desktop {
+    display: block;
+  }
+
   .sudoku-number-inputs {
     width: 459px; /*same as sudoku*/
   }
@@ -170,10 +167,10 @@ button {
   width:44px;height:40px;
   background-color: #f5f5f5;
   padding: 5px 9px 7px 9px;
-  border: 1px solid #eee;
+  border: 1px solid #020205;
   border-radius: 5px;
   font-size: 18px;
-  color:#1c1c1c;
+  color: #020205;
   text-align: center;
   margin-right:5px;
   box-shadow: 2px 2px 5px rgb(20 20 20 / 50%);
