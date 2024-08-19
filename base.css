@@ -83,85 +83,8 @@ button.button.sudoku-note-mode-button.active {
   }
 }
 
-@media (max-width: 767px) { 
-  .sudoku-number-inputs { 
-    margin-right: 6px;
-    margin-left: 6px;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  /* button.sudoku-clear-cell-button,
-  button.sudoku-note-mode-button {
-    font-size: 1em;
-  } */
-}
-
 .visible-desktop {
   display: none;
-}
-
-@media (min-width: 1000px) { 
-  .sudoku-number-inputs {
-    max-height: 120px;
-  }
-
-  .desktop-wrap {
-    display: flex;
-  }
-}
-
-@media (min-width: 768px) { 
-  .visible-desktop {
-    display: block;
-  }
-
-  .sudoku-number-inputs {
-    width: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px); /*same as sudoku*/
-  }
-  button.sudoku-clear-cell-button,
-  button.sudoku-note-mode-button {
-    font-size: 14px;
-  }
-}
-
-
-.time {
-  font-size: 40px;
-  color: #dba52b;
-  font-family: 'Bevan', sans-serif;
-}
-.time .minutes,
-.time .seconds {
-  margin: 0 -2px;
-}
-.time .colon {
-  position: relative;
-  bottom: 1px;
-  margin: 0 -2px;
-}
-
-.sudoku-arrow-key-label {
-  font-size: 12px;
-}
-
-.sudoku-explanation {
-  max-width: 600px;
-  min-width: 200px;
-  margin: 40px auto;
-  padding: 10px;
-  font-size: 14px;
-  text-align: center;
-  color: #dba52b;
-}
-
-.sudoku-explanation h3 {
-  font-weight: bold; 
-  font-size: 1.3em;
-  line-height: 1.6;
-}
-
-.sudoku-explanation p {
-  margin: 10px 0;
 }
 
 footer {

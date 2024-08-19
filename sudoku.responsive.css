@@ -96,6 +96,121 @@
   }
 }
 
+
+.time {
+  font-size: 40px;
+  color: #dba52b;
+  font-family: 'Bevan', sans-serif;
+
+  .minutes,
+  .seconds {
+    margin: 0 -2px;
+  }
+
+  .colon {
+    position: relative;
+    bottom: 1px;
+    margin: 0 -2px;
+  }
+}
+
+.sudoku-arrow-key-label {
+  font-size: 12px;
+}
+
+.sudoku-explanation {
+  max-width: 600px;
+  min-width: 200px;
+  margin: 40px auto;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #dba52b;
+  
+  h3 {
+    font-weight: bold; 
+    font-size: 1.3em;
+    line-height: 1.6;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+  
+}
+
+.numbers-bar {
+  width: 475px;
+  margin: 5px auto;
+  box-sizing: border-box;
+}
+.numbers-bar .number {
+  background-color: #fdb;
+  border: 1px solid #000;
+  height: 60px;
+  width: 60px;
+  box-sizing: content-box;
+  font-size: 30px;
+  text-align: center;
+}
+.numbers-bar .number:nth-child(3),
+.numbers-bar .number:nth-child(6) {
+  margin-right: 3px;
+}
+.numbers-bar .number:hover {
+  background-color: #bdf;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+  .sudoku .cell .value {
+    font-size: 7vw;
+    line-height: 7vw;
+  }
+  .sudoku-note-cell {
+    height: 3.16667vw;
+    width: 3.16667vw;
+  }
+  .sudoku-note-cell--1 {
+    top: 0.5vw;
+    left: 0.5vw;
+  }
+  .sudoku-note-cell--2 {
+    top: 0.5vw;
+    left: 3.66667vw;
+  }
+  .sudoku-note-cell--3 {
+    top: 0.5vw;
+    left: 6.83333vw;
+  }
+  .sudoku-note-cell--4 {
+    top: 3.66667vw;
+    left: 0.5vw;
+  }
+  .sudoku-note-cell--5 {
+    top: 3.66667vw;
+    left: 3.66667vw;
+  }
+  .sudoku-note-cell--6 {
+    top: 3.66667vw;
+    left: 6.83333vw;
+  }
+  .sudoku-note-cell--7 {
+    top: 6.83333vw;
+    left: 0.5vw;
+  }
+  .sudoku-note-cell--8 {
+    top: 6.83333vw;
+    left: 3.66667vw;
+  }
+  .sudoku-note-cell--9 {
+    top: 6.83333vw;
+    left: 6.83333vw;
+  }
+}
+
 @media (min-width: 768px) {
   .sudoku {
     margin-bottom: 50px;
@@ -154,75 +269,51 @@
   }
 }
 
-@media (max-width: 767px) {
-  body {
-    padding: 0;
-  }
-  .sudoku .cell .value {
-    font-size: 7vw;
-    line-height: 7vw;
-  }
-  .sudoku-note-cell {
-    height: 3.16667vw;
-    width: 3.16667vw;
-  }
-  .sudoku-note-cell--1 {
-    top: 0.5vw;
-    left: 0.5vw;
-  }
-  .sudoku-note-cell--2 {
-    top: 0.5vw;
-    left: 3.66667vw;
-  }
-  .sudoku-note-cell--3 {
-    top: 0.5vw;
-    left: 6.83333vw;
-  }
-  .sudoku-note-cell--4 {
-    top: 3.66667vw;
-    left: 0.5vw;
-  }
-  .sudoku-note-cell--5 {
-    top: 3.66667vw;
-    left: 3.66667vw;
-  }
-  .sudoku-note-cell--6 {
-    top: 3.66667vw;
-    left: 6.83333vw;
-  }
-  .sudoku-note-cell--7 {
-    top: 6.83333vw;
-    left: 0.5vw;
-  }
-  .sudoku-note-cell--8 {
-    top: 6.83333vw;
-    left: 3.66667vw;
-  }
-  .sudoku-note-cell--9 {
-    top: 6.83333vw;
-    left: 6.83333vw;
+
+@media (max-width: 767px) { 
+  .sudoku-number-inputs { 
+    margin-right: 6px;
+    margin-left: 6px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 
-.numbers-bar {
-  width: 475px;
-  margin: 5px auto;
-  box-sizing: border-box;
+@media (min-width: 768px) and (max-width: 999px) { 
+  .sudoku-number-inputs {
+    width: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px); /*same as sudoku*/
+  }
+  button.sudoku-clear-cell-button,
+  button.sudoku-note-mode-button {
+    font-size: 14px;
+  }
 }
-.numbers-bar .number {
-  background-color: #fdb;
-  border: 1px solid #000;
-  height: 60px;
-  width: 60px;
-  box-sizing: content-box;
-  font-size: 30px;
-  text-align: center;
-}
-.numbers-bar .number:nth-child(3),
-.numbers-bar .number:nth-child(6) {
-  margin-right: 3px;
-}
-.numbers-bar .number:hover {
-  background-color: #bdf;
+
+@media (min-width: 1000px) {
+  .visible-desktop {
+    display: block;
+  }
+
+  .desktop-wrap {
+    display: block;
+    margin: 0 auto;
+
+    .controls-wrap {
+      display: inline-flex;
+      flex-direction: column;
+    }
+    
+
+    .sudoku-number-inputs {
+      max-height: 300px;
+      width: 400px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .sudoku {
+      display: inline-grid;
+      margin-left: 0;
+      margin-right: 40px;
+    }
+  }
 }
