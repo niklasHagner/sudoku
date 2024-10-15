@@ -25,7 +25,6 @@ h1 {
   align-items: center;
 }
 
-
 .button {
   border: none;
 	text-decoration: none;	
@@ -92,4 +91,9 @@ footer {
   background-color: #f1d9a1;
   padding: 20px 20px 20px 40px;
   margin-bottom: -20px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
 }
