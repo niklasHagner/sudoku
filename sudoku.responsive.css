@@ -269,20 +269,39 @@
   }
 }
 
+.sudoku-number-inputs {
+  display: grid;
+  gap: 10px;
+  margin: 0 auto 50px auto;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  height: auto;
+
+  button {
+    min-width: 40px;
+    padding: 0;
+  }
+}
+
+.button.sudoku-clear-cell-button {
+  grid-column: span 2;
+}
 
 @media (max-width: 767px) { 
-  .sudoku-number-inputs { 
+  .sudoku-number-inputs {
+    margin-top: 20px;
     margin-right: 6px;
     margin-left: 6px;
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-
 @media (min-width: 768px) and (max-width: 999px) { 
   .sudoku-number-inputs {
     width: calc(var(--cell-width) * 9 + (9 * var(--border-width)) + 1px); /*same as sudoku*/
   }
+
   button.sudoku-clear-cell-button,
   button.sudoku-note-mode-button {
     font-size: 14px;
@@ -302,7 +321,6 @@
       display: inline-flex;
       flex-direction: column;
     }
-    
 
     .sudoku-number-inputs {
       max-height: 300px;
